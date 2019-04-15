@@ -16,7 +16,7 @@ class UriParser
         // http://my-project.local/user/create      ->      "user"
         // http://my-project.local                  ->      "default"
                 
-        return 'Default';
+        return $uriFragments[0];
     }
 
     /**
@@ -24,14 +24,14 @@ class UriParser
      */
     public static function getMethodName()
     {
-		$uriFragments = self::getUriFragments();
+        $uriFragments = self::getUriFragments();
 		// TODO: Methode um den "Action"-Teil der URI zurückzugeben
         
         // http://my-project.local/default/index    ->      "index"
         // http://my-project.local/user/create      ->      "create"
         // http://my-project.local                  ->      "index"
         
-        return 'index';
+        return $uriFragments[1];
     }
 
     private static function getUriFragments()
@@ -43,7 +43,7 @@ class UriParser
         $uri = strtok($uri, '?'); // Erstes ? und alles danach abschneiden
         $uri = trim($uri, '/'); // Alle / am Anfang und am Ende der URI abschneiden
         $uriFragments = explode('/', $uri); // In Einzelteile zerlegen
-
+        
         return $uriFragments;
     }
 }

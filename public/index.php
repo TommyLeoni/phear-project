@@ -14,3 +14,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 use App\Dispatcher\Dispatcher;
 
 Dispatcher::dispatch();
+
+echo "<h1> Gruss Silke :=) </h1>";
+
+?>
