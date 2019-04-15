@@ -16,4 +16,14 @@ class UserController
     {
         echo 'User erstellen';
     }
+
+    public function edit()
+    {
+        echo '<h1> Geeditiert !! </h1>';
+    }
+
+    public function delete()
+    {
+        echo "<h1> Alter du hast gelöscht !! </h1>";
+    }
 }
