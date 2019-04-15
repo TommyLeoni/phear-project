@@ -15,6 +15,4 @@ use App\Dispatcher\Dispatcher;
 
 Dispatcher::dispatch();
 
-echo "<h1> Gruss Silke :=) </h1>";
-
 ?>

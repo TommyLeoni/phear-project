@@ -15,8 +15,8 @@ class UriParser
         // http://my-project.local/default/index    ->      "default"
         // http://my-project.local/user/create      ->      "user"
         // http://my-project.local                  ->      "default"
-                
-        return $uriFragments[0];
+
+        return $uriFragments[0] != '' ? $uriFragments[0] : 'Default';
     }
 
     /**
@@ -30,8 +30,8 @@ class UriParser
         // http://my-project.local/default/index    ->      "index"
         // http://my-project.local/user/create      ->      "create"
         // http://my-project.local                  ->      "index"
-        
-        return $uriFragments[1];
+
+        return $uriFragments[0] != '' ? $uriFragments[1] : 'index';
     }
 
     private static function getUriFragments()
