@@ -37,5 +37,6 @@ class DefaultController
     {
         // Für den Moment wird dem Benutzer ein ganz einfaches "Hallo Welt" ohne
         // irgendein HTML Markup ausgegeben.
+        require_once('C:\dev\phear-project\phear-project\lib\home.html');
     }
 }
