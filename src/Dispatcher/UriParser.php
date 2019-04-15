@@ -16,7 +16,7 @@ class UriParser
         // http://my-project.local/user/create      ->      "user"
         // http://my-project.local                  ->      "default"
 
-        return $uriFragments[0] != '' ? $uriFragments[0] : 'Default';
+        return array_key_exists(0, $uriFragments) && $uriFragments[0] != '' ? $uriFragments[0] : 'Default';
     }
 
     /**
@@ -31,7 +31,7 @@ class UriParser
         // http://my-project.local/user/create      ->      "create"
         // http://my-project.local                  ->      "index"
 
-        return $uriFragments[0] != '' ? $uriFragments[1] : 'index';
+        return array_key_exists(1, $uriFragments) && $uriFragments[1] != '' ? $uriFragments[1] : 'index';
     }
 
     private static function getUriFragments()
