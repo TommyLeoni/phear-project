@@ -19,7 +19,7 @@ class UserController
 
     public function edit()
     {
-        echo '<h1> Geeditiert !! </h1>';
+        require_once("C:\dev\phear-project\phear-project\src\html\home.html");
     }
 
     public function delete()
