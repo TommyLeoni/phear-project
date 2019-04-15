@@ -10,6 +10,7 @@
  */
 
 require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../lib/home.html';
 
 use App\Dispatcher\Dispatcher;
 

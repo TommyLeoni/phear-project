@@ -19,7 +19,7 @@ class UserController
 
     public function edit()
     {
-        require_once('C:\dev\phear-project\phear-project\views\edit.html');
+        require_once __DIR__.'\..\..\views\edit.html';
     }
 
     public function delete()
