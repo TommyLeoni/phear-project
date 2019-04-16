@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html>
-<header>
+<head>
     <title> <?=$title;?> </title>
-</header>
+    <link rel="stylesheet" href="/css/stylesheet.css"/>
+</head>
 
 <body>
     <div class="container-fluid">
@@ -9,7 +11,7 @@
             <div class="col-xs-6 col-sm-4">
                 <h1>Profilbild</h1>
             </div>
-            <div class="col-xs-12 col-sm-8">
+            <div class="col-xs-12 col-sm-6">
                 <h1>lol</h1>
             </div>
         </div>
@@ -54,7 +56,7 @@
             </div>
         </div>
         <div>
-            <Button></Button>
+            <Button id="edit-button">Ändern</Button>
         </div>
     </div>
 </body>
