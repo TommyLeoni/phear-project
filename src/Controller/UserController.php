@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\View\View;
+
 /**
  * Siehe Dokumentation im DefaultController.
  */
@@ -19,7 +21,12 @@ class UserController
 
     public function edit()
     {
-        require_once __DIR__.'\..\..\views\edit.html';
+        $view = new View('user/edit');
+
+        $view->title = 'Benutzer Edit';
+        $view->heading = 'Benutzer Edit';
+
+        $view->display();
     }
 
     public function delete()
