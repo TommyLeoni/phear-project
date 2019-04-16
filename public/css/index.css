@@ -3,14 +3,13 @@
     color: aqua;
 }
 
-<<<<<<< HEAD
 #profile-pic {
     width: 50%;
     border-radius: 50%;
     margin-top: 20%;
-=======
-#edit-button{
+}
+
+#edit-button {
     width:  auto;
     height: auto;
->>>>>>> c8c7396551a638e5c662d7eb8dcad45cbd73cb5a
 }

@@ -3,7 +3,7 @@
 
 <head>
     <title><?= $title; ?></title>
-    <link rel="stylesheet" href="/css/stylesheet.css"/>
+    <link rel="stylesheet" href="/css/index.css"/>
 </head>
 
 <body>
