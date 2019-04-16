@@ -16,7 +16,19 @@ class UserController
 
     public function create()
     {
-        echo 'User erstellen';
+        $view = new View('user/create');
+        $view->title = 'Benutzer Create';
+        $view->heading = 'Benutzer Create';
+        $view->display();
+    }
+
+    public function login() 
+    {
+        $view = new View('user/login');
+        $view->title = 'Benutzer Login';
+        $view->heading = 'Benutzer Login';
+        $view->display();
+
     }
 
     public function edit()
