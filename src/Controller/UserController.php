@@ -33,12 +33,17 @@ class UserController
 
     public function edit()
     {
+        $UserRepository = new UserRepository();
+        
         $view = new View('user/edit');
 
         $view->title = 'Benutzer Edit';
         $view->heading = 'Benutzer Edit';
-
+        $view->users= $UserRepository->readbyid($_POST['id']);
+        
         $view->display();
+
+
     }
 
     public function delete()
