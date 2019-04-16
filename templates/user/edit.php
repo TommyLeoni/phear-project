@@ -1,13 +1,15 @@
+<!DOCTYPE html>
 <html>
-<header>
+<head>
+    <link rel="stylesheet" href="css/stylesheet.css"/>
     <title> <?=$title;?> </title>
-</header>
+</head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-6 col-sm-4">
-                <h1>Profilbild</h1>
+                <h1 id="loool">Profilbild</h1>
             </div>
             <div class="col-xs-12 col-sm-8">
                 <h1>lol</h1>
