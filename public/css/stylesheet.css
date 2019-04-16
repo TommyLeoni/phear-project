@@ -2,3 +2,9 @@
     font-size: 200px;
     color: aqua;
 }
+
+#profile-pic {
+    width: 50%;
+    border-radius: 50%;
+    margin-top: 20%;
+}
