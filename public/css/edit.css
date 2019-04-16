@@ -2,3 +2,10 @@
     width:  auto;
     height: auto;
 }
+.middle{
+    align-items: center;
+    display: flex;
+}
+h1{
+    font-size: 25px;
+}
