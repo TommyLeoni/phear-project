@@ -14,7 +14,6 @@
         <?php
             require_once __DIR__.'\..\views\navbar.html';
         ?>
-        <h1> loool </h1>
     </div>
 </body>
 
