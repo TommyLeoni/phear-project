@@ -1,11 +1,35 @@
-#edit-button {
-    width:  auto;
-    height: auto;
-}
-.middle{
-    align-items: center;
-    display: flex;
-}
-h1{
+.titles1{
     font-size: 25px;
+}
+.profile-bg {
+    height: auto;
+    width: auto;
+    background-color: #fafafa;
+    -webkit-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+#profile-pic {
+    width: 30%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+    margin-bottom: 20px;
+}
+.full{
+    width: 100%;
+}
+.bluecolor{
+    color: blue;
+}
+#textarea1{
+    width: 100%;
 }

@@ -7,54 +7,37 @@
 </head>
 
 <body>
-    <div class="container" >
-        <form method="POST">
-            <div>
-                <button type="button" size="auto" src="#Profilbild"></button>
+    <div class="container-fluid  profile-bg">
+        <form class="text-center ">
+            <div class="form-group full">
+                <div>
+                    <img id="profile-pic" src="/images/profile-pic.jpeg" alt="#">
+                </div>
+                <button name="Profilbildupdate" class="btn bluecolor">Profilbild ändern</button>
             </div>
-            <div class="row">
-                <div class="col-xs-6 col-sm-4">
-                    <h1>Benutzername</h1>
-                </div>
-                <div class="col-xs-12 col-sm-8 middle">
-                    <input type="text" >
-                </div>
+            <div class="form-group full">
+                <label for="exampleInputUsername1" class="titles1">Username</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Username">
             </div>
-            <div class="row">
-                <div class="col-xs-6 col-sm-4 ">
-                    <h1>Email</h1>
-                </div>
-                <div class="col-xs-12 col-sm-8 middle">
-                    <input type="email">
-                </div>
+            <div class="form-group full">
+                <label for="exampleInputEmail1" class="titles1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Email">
             </div>
-            <div class="row ">
-                <div class="col-xs-6 col-sm-4 ">
-                    <h1>Geburtsdatum</h1>
-                </div>
-                <div class="col-xs-12 col-sm-8 middle">
-                    <input type="date">
-                </div>
+            <div class="form-group full">
+                <label class="titles1">Geburtsdatum</label>
+                <input type="date" class="form-control" id="exampleInputDate">
             </div>
-            <div class="row">
-                <div class="col-xs-6 col-sm-4 ">
-                    <h1>Bio</h1>
-                </div>
-                <div class="col-xs-12 col-sm-8 middle">
-                    <textarea></textarea>
-                </div>
+            <div class="form-group full">
+                <label class="titles1">Informationen über dich</label>
+                <textarea id="textarea1" placeholder="Bio"></textarea>
             </div>
-            <div class="row">
-                <div class="col-xs-6 col-sm-4 ">
-                    <h1>Passwort</h1>
-                </div>
-                <div class="col-xs-12 col-sm-8 middle">
-                    <input type="password">
-                </div>
+            <div class="form-group full">
+                <label for="exampleInputPassword1" class="titles1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-            <div>
-                <input type="submit" value="Ändern" class="btn btn-light middle">
-            </div>
+            <button type="submit" class="btn btn-primary">Ändern</button>
         </form>
     </div>
 </body>
