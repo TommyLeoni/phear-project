@@ -43,6 +43,9 @@ class DefaultController
 
         $view->title = 'Benutzer';
         $view->heading = 'Benutzer';
+        $view->name = 'Name des Benutzers';
+        $view->username = 'Username';
+        $view->bday = "29.09.2002";
         #$view->users = $userRepository->readAll();
 
         $view->display();

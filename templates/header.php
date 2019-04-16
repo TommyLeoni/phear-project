@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="/css/header.css"/>
+</head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -29,5 +32,6 @@
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
+        <a class="text-right login-link" href="/user/login">Log in</a>
     </div>
 </nav>

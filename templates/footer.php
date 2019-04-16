@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="/css/footer.css"/>
+</head>
+
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4 fixed-bottom">
 
@@ -27,7 +31,9 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Link 1</a>
+                        <a
+                            href="https://shop.global.flixbus.com/search?departureCity=3158&arrivalCity=1795&route=Bern-Budapest&rideDate=16.04.2019&adult=1&_locale=en&wt_eid=2155532852000465507&wt_t=1555411640115&affiliate=%28not+set%29%2C&_ga=2.90244761.202346450.1555328520-1460066141.1555328520" target="blank">Link
+                            1</a>
                     </li>
                     <li>
                         <a href="#!">Link 2</a>
