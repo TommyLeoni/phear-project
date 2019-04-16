@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\View\View;
+
 /**
  * Der Controller ist der Ort an dem es für jede Seite, welche der Benutzer
  * anfordern kann eine Methode gibt, welche die dazugehörende Businesslogik
@@ -35,7 +37,14 @@ class DefaultController
      */
     public function index()
     {
-        // Für den Moment wird dem Benutzer ein ganz einfaches "Hallo Welt" ohne
-        // irgendein HTML Markup ausgegeben.
+        # $userRepository = new UserRepository();
+
+        $view = new View('user/index');
+
+        $view->title = 'Benutzer';
+        $view->heading = 'Benutzer';
+        #$view->users = $userRepository->readAll();
+
+        $view->display();
     }
 }
