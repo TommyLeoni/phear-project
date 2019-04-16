@@ -24,7 +24,9 @@
                             <button class="btn btn-secondary">Edit</button>
                         </div>
                         <div class="col-sm">
-                            <button class="btn btn-secondary">Logout</button>
+                            <form id="logout-btn" action="/user/login">
+                                <button class="btn btn-secondary" type="submit">Logout</button>
+                            </form>
                         </div>
                     </div>
                 </div>
