@@ -13,6 +13,8 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use App\Dispatcher\Dispatcher;
 
+session_start();
+
 Dispatcher::dispatch();
 
 ?>

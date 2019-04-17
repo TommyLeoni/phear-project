@@ -36,6 +36,21 @@ class UserRepository extends Repository
         return $userFound;
     }
 
+    public function getIDByEmail($email)
+    {
+        $users = $this->readAll();
+        $userID;
+
+        foreach ($users as $user) {
+            if ($user->email == $email) {
+                $userID = $user->id;
+                break;
+            }
+        }
+
+        return $userID;
+    }
+
     public function getIDByUsername($username)
     {
         $users = $this->readAll();
@@ -49,5 +64,24 @@ class UserRepository extends Repository
         }
 
         return $userID;
+    }
+
+    public function verifyPassword($uid, $password)
+    {
+        $user = $this->readById($uid);
+        if ($user->passwort == $password) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function fillInData()
+    {
+        $entry = $this->readById($_SESSION['userID']);
+        $_SESSION['bio'] = $entry->bio; 
+        $_SESSION['name'] = $entry->name;
+        $_SESSION['username'] = $entry->username;
+        $_SESSION['gebDat'] = $entry->geburtsdatum;
     }
 }
