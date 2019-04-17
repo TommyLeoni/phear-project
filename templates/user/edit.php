@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group full">
                     <label for="exampleInputPassword1" class="titles1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="<?=$passwort;?>">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary">Ändern</button>
             </div>

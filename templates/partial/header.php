@@ -1,7 +1,7 @@
 <head>
     <link rel="stylesheet" href="/css/header.css"/>
 </head>
-<nav class="navbar navbar-expand-lg navbar-light be-o" style="background-color: #4cf76e;">
+<nav class="main-header navbar navbar-expand-lg navbar-light be-o" style="background-color: #4cf76e;">
     <?php
         if(isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == true) {
             echo "
@@ -52,6 +52,10 @@
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
-        <a class="text-right login-link" href="/user/login">Log in</a>
+        <?php
+            if(isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == true) {
+                echo '<a class="text-right login-link" href="/user/logout">Log out</a>';
+            }
+        ?>
     </div>
 </nav>
