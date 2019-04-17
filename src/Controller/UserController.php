@@ -11,9 +11,6 @@ use App\Repository\PostRepository;
  */
 class UserController
 {
-    protected $currentUserId;
-    protected $currentSessionID;
-
     public function index()
     {
         $userRepository = new UserRepository();
@@ -78,22 +75,33 @@ class UserController
 
             if($userVerifier->userExistsByUsername($username))
             {
-                session_start();
-                $this->currentSessionID = session_id();
                 $this->currentUserId = $userVerifier->getIDByUsername($username);
-                $this->index();
+
+                if ($userVerifier->verifyPassword($this->currentUserId, $password)) {
+                    $_SESSION['isLoggedIn'] = true;
+                    $_SESSION['wrongLogin'] = false;
+                    $_SESSION['userID'] = $userVerifier->getIDByUsername($username);
+                    $_SESSION['sessionID'] = session_id();
+                    $userVerifier->fillInData();
+                    $this->index();
+                }
+                else
+                {
+                    $_SESSION['wrongLogin'] = true;
+                    $this->login();
+                }
             }
             else
             {
-                echo "is ned da" . "<br />";
+
             }
-            echo $username;
         }
     }
 
     public function logout()
-    {
-        
+    { 
+        $_SESSION['isLoggedIn'] = false;
+        session_destroy();
         $this->login();
     }
 

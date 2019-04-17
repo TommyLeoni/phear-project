@@ -10,6 +10,16 @@
         <div class="login-bg">
             <img id="login-pic" src="/images/pear.png" class="img-fluid rounded-circle" alt="login image">
             <h3 id="welcoming-text">Welcome to Phear! Fancy having a go?</h3>
+            <?php
+                if (isset($_SESSION['wrongLogin']) && $_SESSION['wrongLogin'] == true) {
+                    echo "<h6 style='color: red;'>Credentials Incorrect!</h6>";
+                    $_SESSION['wrongLogin'] = false;
+                }
+                else
+                {
+                    echo "<br />";
+                }
+            ?>
             <form method="POST" action="/user/doLogin">
                 <div class="form-group row justify-content-md-center">
                     <div class="col-md-8 col-xl-8 col-xs-8">
