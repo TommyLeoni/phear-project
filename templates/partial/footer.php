@@ -1,7 +1,7 @@
 <head>
     <link rel="stylesheet" href="/css/footer.css"/>
 </head>
-<footer class="fixed-bottom navbar-light bg-light">
+<footer class="main-footer">
     <div class="row justify-content-md-center">
         <div class="col col-lg-auto navbar-text">
             About us
