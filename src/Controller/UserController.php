@@ -124,4 +124,10 @@ class UserController
     {
         echo "<h1> Alter du hast gelöscht !! </h1>";
     }
+    public function update()
+    {    
+        $userRepository = new UserRepository();
+        $userRepository->update($_POST['username'], $_POST['name'], $_POST['email'], $_POST['gebDat'], $_POST['bio'], $_POST['passwort'], $_SESSION['userID']);
+        header('Location: /user/index');
+    }
 }
