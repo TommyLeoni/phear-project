@@ -40,7 +40,7 @@
             </div>
             <div class="col-xs-5 col-sm-2 col-md-3 be-r">
                 <div class="profile-bg">
-                    <form>
+                    <form action="" method="post">
                         <div class="createpost">
                             <div>
                                 <div class="Create-of-Post">
@@ -49,15 +49,15 @@
                                 <div>
                                     <img style="border-radius: 50%;" src="/images/profile-pic.jpeg"
                                         class="shadow img-fluid" alt="Your profile picture" />
-                                    <label class="username">@Benutzername</label>
+                                    <label class="username">@<?=$username;?></label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control textarea1" id="comment"
-                                    Placeholder="Tippe hier den Post ein"></textarea>
+                                    Placeholder="Tippe hier den Post ein" name="post"></textarea>
                             </div>
                             <div id="container">
-                                <button class="btn btn-secondary" type="input">Phearen</button>
+                                <button class="btn btn-secondary" type="submit">Phearen</button>
                             </div>
                         </div>
                     </form>

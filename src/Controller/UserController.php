@@ -31,6 +31,14 @@ class UserController
         $view->display();
 
     }
+    public function registration()
+    {
+        $view = new View('user/registration');
+        $view->title = 'Benutzer Registration';
+        $view->heading = 'Benutzer Registration';
+        $view->display();
+
+    }
 
     public function edit()
     {
