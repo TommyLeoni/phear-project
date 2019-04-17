@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\View\View;
+use App\Repository\UserRepository;
+use App\Repository\PostRepository;
 
 /**
  * Der Controller ist der Ort an dem es für jede Seite, welche der Benutzer
@@ -37,7 +39,8 @@ class DefaultController
      */
     public function index()
     {
-        # $userRepository = new UserRepository();
+        $userRepository = new UserRepository();
+        $postRepository = new PostRepository();
 
         $view = new View('user/index');
 
@@ -46,7 +49,12 @@ class DefaultController
         $view->name = 'Name des Benutzers';
         $view->username = 'Username';
         $view->bday = "29.09.2002";
-        #$view->users = $userRepository->readAll();
+        $view->post = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has
+        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+        galley of type and scrambled it to make a type specimen book.";
+        $view->users = $userRepository->readAll();
+        $view->posts = $postRepository->readAll();
 
         $view->display();
     }
