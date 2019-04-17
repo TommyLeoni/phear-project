@@ -34,3 +34,7 @@
     font-weight: 400;
     margin-top: 2%;
 }
+
+img {
+    border-radius: 50%;
+}

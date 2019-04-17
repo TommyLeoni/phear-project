@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
+<?php
+    use App\Repository\UserRepository;
+    use App\Repository\PostRepository;
 
+    $userRepo = new UserRepository();
+    $postRepo = new PostRepository();
+    
+    $default = "https://de.gravatar.com/userimage/";
+    $size = 50;
+    $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $_SESSION['email'] ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+?>
 <head>
     <title><?=$title;?></title>
     <link rel="stylesheet" href="/css/index.css" />
@@ -11,7 +21,7 @@
         <div class="row text-center">
             <div class="col-xs-5 col-sm-2 col-md-3 be-l">
                 <div class="profile-bg">
-                    <img id="profile-pic" src="/images/profile-pic.jpeg" class="img-fluid" alt="Your profile picture" />
+                    <img id="profile-pic" src="<?= $grav_url; ?>" class="img-fluid" alt="Your profile picture" />
                     <h3 class="text-left name-of-user"><?= $_SESSION['name']; ?></h3>
                     <h6 class="text-left username text-muted">@<?= $_SESSION['username']; ?></h6>
                     <h6 class="text-left bday text-muted"><?= $_SESSION['gebDat']; ?></h6>
@@ -36,17 +46,12 @@
                 ?>
             </div>
             <div class="col-xs-5 col-sm-2 col-md-3 be-r">
-                <div class="profile-bg">
+                <div class="create-post-bg text-left">
                     <form action="" method="post">
-                        <div class="createpost">
+                        <div>
                             <div>
                                 <div class="Create-of-Post">
-                                    Create Post
-                                </div>
-                                <div>
-                                    <img style="border-radius: 50%;" src="/images/profile-pic.jpeg"
-                                        class="shadow img-fluid" alt="Your profile picture" />
-                                    <label class="username">@<?=$_SESSION['username'];?></label>
+                                    <h3>Create Post</h3>
                                 </div>
                             </div>
                             <div class="form-group">

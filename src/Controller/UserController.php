@@ -115,9 +115,6 @@ class UserController
         $view->user= $UserRepository->readById($_SESSION['userID']);
         
         $view->display();
-
-
-        $view->display();
     }
 
     public function delete()

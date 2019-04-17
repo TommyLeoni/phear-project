@@ -86,6 +86,7 @@ class UserRepository extends Repository
         $_SESSION['username'] = $entry->username;
         $_SESSION['gebDat'] = $entry->geburtsdatum;
         $_SESSION['email'] = $entry->email;
+        $_SESSION['password'] = strlen($entry->passwort);
     }
     public function update($username, $name, $email, $geburtstag, $bio, $passwort, $userID){
         $connection=ConnectionHandler::getConnection();
