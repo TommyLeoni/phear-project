@@ -88,9 +88,10 @@ class UserRepository extends Repository
         $_SESSION['email'] = $entry->email;
         $_SESSION['password'] = strlen($entry->passwort);
     }
+
     public function update($username, $name, $email, $geburtstag, $bio, $passwort, $userID){
         $connection=ConnectionHandler::getConnection();
-        $query = "Update users set username=?, name=?, email=?, geburtsdatum=?, bio=?, passwort=? where id=?";
+        $query = "UPDATE users set username=?, name=?, email=?, geburtsdatum=?, bio=?, passwort=? where id=?";
         $statement = $connection->prepare($query); // can fail because of syntax errors, missing privileges
         if (false === $statement) { throw new Exception($connection->error); } 
         // can fail because the number of parameter doesn't match the placeholders or type conflict
@@ -101,11 +102,21 @@ class UserRepository extends Repository
 
     public function create($username, $name, $email, $geburtstag, $passwort) {
         $connection = ConnectionHandler::getConnection();
-        $query = "INSERT INTO users(username, email, geburtsdatum, passwort, name) VALUES(?, ?, ?, ?, ?);";
+        $query = "INSERT INTO users(username, email, geburtsdatum, bio, passwort, name) VALUES(?, ?, ?, 'Click on the edit-button to edit your bio and everything else about your profile.', ?, ?);";
         $statement = $connection->prepare($query); // can fail because of syntax errors, missing privileges
         if (false === $statement) { throw new Exception($connection->error); } 
         // can fail because the number of parameter doesn't match the placeholders or type conflict
-        $rc = $statement->bind_param('sssss', $username, $email, $geburtstag, $passwort, $name);
+        $rc = $statement->bind_param('sssss', $username, $email, $geburtstag,$passwort, $name);
+        if (false === $rc) { throw new Exception($statement->error); }
+        if (!$statement->execute()) { throw new Exception($statement->error); }
+    }
+    public function delete($uid){
+        $connection=ConnectionHandler::getConnection();
+        $query = "DELETE from users where id=?";
+        $statement = $connection->prepare($query); // can fail because of syntax errors, missing privileges
+        if (false === $statement) { throw new Exception($connection->error); } 
+        // can fail because the number of parameter doesn't match the placeholders or type conflict
+        $rc = $statement->bind_param('i',$uid);
         if (false === $rc) { throw new Exception($statement->error); }
         if (!$statement->execute()) { throw new Exception($statement->error); }
     }

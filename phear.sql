@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 17. Apr 2019 um 11:33
+-- Erstellungszeit: 17. Apr 2019 um 22:57
 -- Server-Version: 10.1.38-MariaDB
--- PHP-Version: 7.3.3
+-- PHP-Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bewertungen` (
-  `bid` int(11) NOT NULL,
+  `bid` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `uid_FK` int(11) NOT NULL,
   `pid_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -41,7 +41,7 @@ CREATE TABLE `bewertungen` (
 --
 
 CREATE TABLE `post` (
-  `pid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `post` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `uid_FK` int(11) NOT NULL,
   `bid_FK` int(11) NOT NULL
@@ -90,20 +90,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `geburtsdatum`, `bio`, `passwort
 -- Indizes für die Tabelle `bewertungen`
 --
 ALTER TABLE `bewertungen`
-  ADD PRIMARY KEY (`bid`),
   ADD KEY `id_FK` (`uid_FK`),
   ADD KEY `pid_FK` (`pid_FK`);
-
---
--- Indizes für die Tabelle `post`
---
-ALTER TABLE `post`
-  ADD PRIMARY KEY (`pid`),
-  ADD KEY `uid_FK` (`uid_FK`);
-
---
--- Constraints der exportierten Tabellen
---
 
 --
 -- Constraints der Tabelle `post`

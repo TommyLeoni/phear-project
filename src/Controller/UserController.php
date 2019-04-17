@@ -81,20 +81,34 @@ class UserController
         $identifier = $_POST['identifier'];
         $password = $_POST['password'];
 
-        if (preg_match("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}^", $identifier))
+        if (filter_var($identifier, FILTER_VALIDATE_EMAIL))
         {
             $email = $identifier;
 
             if($userVerifier->userExistsByEmail($email))
             {
-                echo "is da" . "<br />";
+                $this->currentUserId = $userVerifier->getIDByEmail($email);
+
+                if ($userVerifier->verifyPassword($this->currentUserId, $password)) {
+                    $_SESSION['isLoggedIn'] = true;
+                    $_SESSION['wrongLogin'] = false;
+                    $_SESSION['wrongPassword'] = false;
+                    $_SESSION['userID'] = $userVerifier->getIDByEmail($email);
+                    $_SESSION['sessionID'] = session_id();
+                    $userVerifier->fillInData();
+                    header('Location: /user/index');
+                }
+                else
+                {
+                    $_SESSION['wrongPassword'] = true;
+                    header('Location: /user/login');
+                }
             }
             else
             {
-                echo "is ned da" . "<br />";
+                $_SESSION['wrongLogin'] = true;
+                header('Location: /user/login');
             }
-
-            echo $email;
         }
         else
         {
@@ -107,6 +121,7 @@ class UserController
                 if ($userVerifier->verifyPassword($this->currentUserId, $password)) {
                     $_SESSION['isLoggedIn'] = true;
                     $_SESSION['wrongLogin'] = false;
+                    $_SESSION['wrongPassword'] = false;
                     $_SESSION['userID'] = $userVerifier->getIDByUsername($username);
                     $_SESSION['sessionID'] = session_id();
                     $userVerifier->fillInData();
@@ -114,13 +129,14 @@ class UserController
                 }
                 else
                 {
-                    $_SESSION['wrongLogin'] = true;
-                    $this->login();
+                    $_SESSION['wrongPassword'] = true;
+                    header('Location: /user/login');
                 }
             }
             else
             {
-
+                $_SESSION['wrongLogin'] = true;
+                header('Location: /user/login');
             }
         }
     }
@@ -147,7 +163,9 @@ class UserController
 
     public function delete()
     {
-        echo "<h1> Alter du hast gelöscht !! </h1>";
+        $userRepository = new UserRepository();
+        $userRepository->delete($_SESSION['userID']);
+        header('Location: index');
     }
     public function update()
     {    
@@ -155,5 +173,11 @@ class UserController
         $userRepository->update($_POST['username'], $_POST['name'], $_POST['email'], $_POST['gebDat'], $_POST['bio'], $_POST['passwort'], $_SESSION['userID']);
         $userRepository->fillInData();
         header('Location: /user/index');
+    }
+    public function newpost()
+    {
+        $postRepository = new PostRepository();
+        $postRepository->newpost($_POST['post'], $_SESSION['userID']);
+        header('Location: index');
     }
 }
