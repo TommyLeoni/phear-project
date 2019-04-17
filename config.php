@@ -23,7 +23,7 @@ return array(
         'host'     => 'localhost',
         'username' => 'myapp_user',
         'password' => 'oMqD3rmUtkGjDg6G',
-        'database' => 'phaer',
+        'database' => 'phear',
     ),
 
 );

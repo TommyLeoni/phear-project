@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\View\View;
+use App\Repository\UserRepository;
 
 /**
  * Siehe Dokumentation im DefaultController.
@@ -39,7 +40,7 @@ class UserController
 
         $view->title = 'Benutzer Edit';
         $view->heading = 'Benutzer Edit';
-        $view->users= $UserRepository->readbyid($_POST['id']);
+        $view->users= $UserRepository->readbyid($_GET['id']);
         
         $view->display();
 
