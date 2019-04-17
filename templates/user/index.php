@@ -15,16 +15,13 @@
                     <h3 class="text-left name-of-user"><?= $name; ?></h3>
                     <h6 class="text-left username text-muted">@<?= $username; ?></h6>
                     <h6 class="text-left bday text-muted"><?= $bday; ?></h6>
-                    <p class="text-left bio">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen book.</p>
+                    <p class="text-left bio"><?= $bio; ?></p>
                     <div class="row text-left">
                         <div class="col-sm-3">
                             <a href="/user/edit"><button class="btn btn-secondary">Edit</button></a>
                         </div>
                         <div class="col-sm">
-                            <form id="logout-btn" action="/user/login">
+                            <form id="logout-btn" action="/user/logout">
                                 <button class="btn btn-secondary" type="submit">Logout</button>
                             </form>
                         </div>

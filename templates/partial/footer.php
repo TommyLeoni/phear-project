@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="/css/footer.css"/>
+    <link rel="stylesheet" href="/css/footer.css" />
 </head>
 <footer class="main-footer">
     <div class="row justify-content-md-center">

@@ -4,15 +4,35 @@ namespace App\Controller;
 
 use App\View\View;
 use App\Repository\UserRepository;
+use App\Repository\PostRepository;
 
 /**
  * Siehe Dokumentation im DefaultController.
  */
 class UserController
 {
+    protected $currentUserId;
+    protected $currentSessionID;
+
     public function index()
     {
-        echo 'User index';
+        $userRepository = new UserRepository();
+        $postRepository = new PostRepository();
+
+        $view = new View('user/index');
+
+        $currentUser = $userRepository->readById($this->currentUserId);
+
+        $view->user = $currentUser;
+        $view->posts = $postRepository->readAll();
+        $view->title = 'Home';
+        $view->heading = 'Home';
+        $view->name = $currentUser->name;
+        $view->username = $currentUser->username;
+        $view->bday = $currentUser->geburtsdatum;
+        $view->bio = $currentUser->bio;
+
+        $view->display();
     }
 
     public function create()
@@ -29,7 +49,52 @@ class UserController
         $view->title = 'Benutzer Login';
         $view->heading = 'Benutzer Login';
         $view->display();
+    }
 
+    public function doLogin()
+    {
+        $userVerifier = new UserRepository();
+        $identifier = $_POST['identifier'];
+        $password = $_POST['password'];
+
+        if (preg_match("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}^", $identifier))
+        {
+            $email = $identifier;
+
+            if($userVerifier->userExistsByEmail($email))
+            {
+                echo "is da" . "<br />";
+            }
+            else
+            {
+                echo "is ned da" . "<br />";
+            }
+
+            echo $email;
+        }
+        else
+        {
+            $username = $identifier;
+
+            if($userVerifier->userExistsByUsername($username))
+            {
+                session_start();
+                $this->currentSessionID = session_id();
+                $this->currentUserId = $userVerifier->getIDByUsername($username);
+                $this->index();
+            }
+            else
+            {
+                echo "is ned da" . "<br />";
+            }
+            echo $username;
+        }
+    }
+
+    public function logout()
+    {
+        session_destroy($this->currentSessionID);
+        $this->login();
     }
 
     public function edit()
