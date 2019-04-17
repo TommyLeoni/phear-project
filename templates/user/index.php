@@ -21,7 +21,7 @@
                         galley of type and scrambled it to make a type specimen book.</p>
                     <div class="row text-left">
                         <div class="col-sm-3">
-                            <button class="btn btn-secondary">Edit</button>
+                            <a href="/user/edit"><button class="btn btn-secondary">Edit</button></a>
                         </div>
                         <div class="col-sm">
                             <form id="logout-btn" action="/user/login">
@@ -32,7 +32,15 @@
                 </div>
             </div>
             <div class="col-xs-10 col-sm-4 col-md-6">
-                TWO
+                <?php
+                    require '../templates/partial/post.php';
+
+                    print_r($posts);
+
+                    foreach ($posts as $post) {
+                        require '../templates/partial/post.php';
+                    }
+                ?>
             </div>
             <div class="col-xs-5 col-sm-2 col-md-3">
                 THREE

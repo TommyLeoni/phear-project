@@ -28,8 +28,8 @@ class View
     public function display()
     {
         extract($this->properties);
-        require './../templates/header.php';
+        require './../templates/partial/header.php';
         require $this->viewfile;
-        require './../templates/footer.php';
+        require './../templates/partial/footer.php';
     }
 }
