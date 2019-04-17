@@ -8,14 +8,15 @@
 
 <body>
     <div class="container-fluid text-center">
-        <form method="post" action="user/edit" class="row justify-content-md-center">
+        <div class="row justify-content-md-center">
             <div class="col-md-6 profile-bg">
                 <div class="form-group full">
                     <div>
                         <img id="profile-pic" src="/images/profile-pic.jpeg" alt="#">
                     </div>
-                    <button name="Profilbildupdate" class="btn bluecolor">Profilbild ändern</button>
+                   <a href="https://de.gravatar.com/site/login/"><button class="btn bluecolor">Profilbild ändern</button></a>
                 </div>
+                <form method="post" action="user/edit">
                 <div class="form-group full">
                     <label for="exampleInputUsername1" class="titles1">Username</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -46,6 +47,7 @@
                 <button type="submit" class="btn btn-primary">Ändern</button>
             </div>
         </form>
+</div>
     </div>
 </body>
 
