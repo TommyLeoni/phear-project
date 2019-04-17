@@ -30,7 +30,7 @@
 }
 .textarea1{
     resize: none !important;
-    height: 40% !important;
+    height: 500px !important;
 }
 .name-of-user {
     font-size: 26px;
@@ -40,6 +40,21 @@
 .username {
     font-size: 20px;
     margin-top: 3%;
+}
+.be-r{
+    position: fixed;
+    left: 75%;
+    top: 5%;
+}
+.be-l{
+    position: fixed;
+    top: 5%;
+}
+.be-m{
+    margin-left: 25%;
+    margin-top: 5%;
+    z-index: -10;
+
 }
 
 .bday {
@@ -66,4 +81,9 @@
 
 #createpost{
     margin: 10% 5% 10% 5%;
+}
+
+.Create-of-Post{
+    font-size: 200%;
+    font-weight: 600;
 }
