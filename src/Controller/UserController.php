@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\View\View;
 use App\Repository\UserRepository;
+use App\View\View;
 
 /**
  * Siehe Dokumentation im DefaultController.
@@ -23,7 +23,7 @@ class UserController
         $view->display();
     }
 
-    public function login() 
+    public function login()
     {
         $view = new View('user/login');
         $view->title = 'Benutzer Login';
@@ -35,15 +35,15 @@ class UserController
     public function edit()
     {
         $UserRepository = new UserRepository();
-        
+
         $view = new View('user/edit');
 
         $view->title = 'Benutzer Edit';
         $view->heading = 'Benutzer Edit';
-        $view->users= $UserRepository->readbyid($_GET['id']);
-        
+        if (isset($_GET['id'])) {
+            $view->users = $UserRepository->readbyid($_GET['id']);
+        }
         $view->display();
-
 
     }
 
