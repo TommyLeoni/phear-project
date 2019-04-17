@@ -39,23 +39,14 @@ class DefaultController
      */
     public function index()
     {
-        $userRepository = new UserRepository();
-        $postRepository = new PostRepository();
-
-        $view = new View('user/index');
-
-        $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
-        $view->name = 'Name des Benutzers';
-        $view->username = 'Username';
-        $view->bday = "29.09.2002";
-        $view->post = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-        galley of type and scrambled it to make a type specimen book.";
-        $view->users = $userRepository->readAll();
-        $view->posts = $postRepository->readAll();
-
-        $view->display();
+        if (isset($_SESSION['isLoggedIn'])) {
+            $userController = new UserController();
+            $userController->index();
+        } else {
+            $view = new View('user/login');
+            $view->title = 'Benutzer Login';
+            $view->heading = 'Benutzer Login';
+            $view->display();
+        }
     }
 }

@@ -19,25 +19,25 @@
                 <div class="form-group full">
                     <label for="exampleInputUsername1" class="titles1">Username</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Username">
+                        placeholder="<?= $_SESSION['username'];?>">
                 </div>
                 <div class="form-group full">
                     <label for="exampleInputName1" class="titles1">Name</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Name">
+                        placeholder="<?= $_SESSION['name']; ?>">
                 </div>
                 <div class="form-group full">
                     <label for="exampleInputEmail1" class="titles1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Email">
+                        placeholder="<?= $_SESSION['email']; ?>">
                 </div>
                 <div class="form-group full">
                     <label class="titles1">Geburtsdatum</label>
-                    <input type="date" class="form-control" id="exampleInputDate">
+                    <input type="text" class="form-control" id="exampleInputDate" placeholder="<?= $_SESSION['gebDat']; ?>">
                 </div>
                 <div class="form-group full">
                     <label class="titles1">Informationen über dich</label>
-                    <textarea id="textarea1" placeholder="Bio"></textarea>
+                    <textarea id="textarea1" placeholder="<?= $_SESSION['bio']; ?>"></textarea>
                 </div>
                 <div class="form-group full">
                     <label for="exampleInputPassword1" class="titles1">Password</label>

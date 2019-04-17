@@ -46,7 +46,7 @@
                                 <div>
                                     <img style="border-radius: 50%;" src="/images/profile-pic.jpeg"
                                         class="shadow img-fluid" alt="Your profile picture" />
-                                    <label class="username">@<?=$username;?></label>
+                                    <label class="username">@<?=$_SESSION['username'];?></label>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -17,17 +17,9 @@ class UserController
         $postRepository = new PostRepository();
 
         $view = new View('user/index');
-
-        $currentUser = $userRepository->readById($this->currentUserId);
-
-        $view->user = $currentUser;
         $view->posts = $postRepository->readAll();
         $view->title = 'Home';
         $view->heading = 'Home';
-        $view->name = $currentUser->name;
-        $view->username = $currentUser->username;
-        $view->bday = $currentUser->geburtsdatum;
-        $view->bio = $currentUser->bio;
 
         $view->display();
     }
@@ -120,7 +112,7 @@ class UserController
 
         $view->title = 'Benutzer Edit';
         $view->heading = 'Benutzer Edit';
-        $view->users= $UserRepository->readbyid($_GET['id']);
+        $view->user= $UserRepository->readById($_SESSION['userID']);
         
         $view->display();
 

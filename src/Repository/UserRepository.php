@@ -83,5 +83,6 @@ class UserRepository extends Repository
         $_SESSION['name'] = $entry->name;
         $_SESSION['username'] = $entry->username;
         $_SESSION['gebDat'] = $entry->geburtsdatum;
+        $_SESSION['email'] = $entry->email;
     }
 }
