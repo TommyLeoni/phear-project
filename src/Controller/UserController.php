@@ -119,7 +119,9 @@ class UserController
 
     public function delete()
     {
-        echo "<h1> Alter du hast gelöscht !! </h1>";
+        $userRepository = new UserRepository();
+        $userRepository->delete($_SESSION['userID']);
+        header('Location: index');
     }
     public function update()
     {    
@@ -131,5 +133,6 @@ class UserController
     {
         $postRepository = new PostRepository();
         $postRepository->newpost($_POST['post'], $_SESSION['userID']);
+        header('Location: index');
     }
 }
