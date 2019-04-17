@@ -8,7 +8,7 @@
 
 <body>
     <div class="container-fluid text-center">
-        <form class="row justify-content-md-center">
+        <form method="post" action="user/edit" class="row justify-content-md-center">
             <div class="col-md-6 profile-bg">
                 <div class="form-group full">
                     <div>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group full">
                     <label for="exampleInputPassword1" class="titles1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="<?=$passwort;?>">
                 </div>
                 <button type="submit" class="btn btn-primary">Ändern</button>
             </div>

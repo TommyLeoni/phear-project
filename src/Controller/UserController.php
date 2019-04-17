@@ -109,7 +109,7 @@ class UserController
         $UserRepository = new UserRepository();
         
         $view = new View('user/edit');
-
+        $currentUser = $UserRepository->readbyid($this->currentUserId);
         $view->title = 'Benutzer Edit';
         $view->heading = 'Benutzer Edit';
         $view->user= $UserRepository->readById($_SESSION['userID']);
@@ -117,6 +117,7 @@ class UserController
         $view->display();
 
 
+        $view->display();
     }
 
     public function delete()
