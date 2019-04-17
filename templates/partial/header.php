@@ -1,7 +1,7 @@
 <head>
     <link rel="stylesheet" href="/css/header.css"/>
 </head>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4cf76e;">
+<nav class="navbar navbar-expand-lg navbar-light be-o" style="background-color: #4cf76e;">
     <a class="navbar-brand" href="/"><img src="/images/pear.png" width="30" height="30" alt="pear-logo"/></a>
     <a class="navbar-brand" href="/">Phear</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

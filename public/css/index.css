@@ -6,6 +6,13 @@
     box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
 }
 
+.shadow {
+    -webkit-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
+}
+
+
 .profile-bg {
     height: auto;
     width: auto;
@@ -21,7 +28,10 @@
     padding-right: 10%;
     padding-left: 10%;
 }
-
+.textarea1{
+    resize: none !important;
+    height: 500px !important;
+}
 .name-of-user {
     font-size: 26px;
     margin-top: 10%;
@@ -30,6 +40,21 @@
 .username {
     font-size: 20px;
     margin-top: 3%;
+}
+.be-r{
+    position: fixed;
+    left: 75%;
+    top: 5%;
+}
+.be-l{
+    position: fixed;
+    top: 5%;
+}
+.be-m{
+    margin-left: 25%;
+    margin-top: 5%;
+    z-index: -10;
+
 }
 
 .bday {
@@ -52,4 +77,13 @@
 #logout-btn {
     margin: 0;
     padding: 0;
+}
+
+#createpost{
+    margin: 10% 5% 10% 5%;
+}
+
+.Create-of-Post{
+    font-size: 200%;
+    font-weight: 600;
 }

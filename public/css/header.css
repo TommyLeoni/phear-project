@@ -11,3 +11,9 @@
     height: 20px;
     width: auto;
 }
+.be-o{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+}

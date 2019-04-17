@@ -93,7 +93,7 @@ class UserController
 
     public function logout()
     {
-        session_destroy($this->currentSessionID);
+        
         $this->login();
     }
 
