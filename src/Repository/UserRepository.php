@@ -90,13 +90,13 @@ class UserRepository extends Repository
     }
     public function update($username, $name, $email, $geburtstag, $bio, $passwort, $userID){
         $connection=ConnectionHandler::getConnection();
-        $query = "Update users set username=?, name=?, email=?, geburtsdatum=?, bio=?, passwort=? where id=?";
+        $query = "UPDATE users set username=?, name=?, email=?, geburtsdatum=?, bio=?, passwort=? where id=?";
         $statement = $connection->prepare($query); // can fail because of syntax errors, missing privileges
         if (false === $statement) { throw new Exception($connection->error); } 
         // can fail because the number of parameter doesn't match the placeholders or type conflict
         $rc = $statement->bind_param('ssssssi', $username, $name, $email, $geburtstag, $bio, $passwort, $userID);
         if (false === $rc) { throw new Exception($statement->error); }
         if (!$statement->execute()) { throw new Exception($statement->error); }
-       
     }
+    
 }

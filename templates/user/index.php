@@ -47,7 +47,7 @@
             </div>
             <div class="col-xs-5 col-sm-2 col-md-3 be-r">
                 <div class="create-post-bg text-left">
-                    <form action="" method="post">
+                    <form action="user/newPost" method="post">
                         <div>
                             <div>
                                 <div class="Create-of-Post">

@@ -127,4 +127,9 @@ class UserController
         $userRepository->update($_POST['username'], $_POST['name'], $_POST['email'], $_POST['gebDat'], $_POST['bio'], $_POST['passwort'], $_SESSION['userID']);
         header('Location: /user/index');
     }
+    public function newpost()
+    {
+        $postRepository = new PostRepository();
+        $postRepository->newpost($_POST['post'], $_SESSION['userID']);
+    }
 }
