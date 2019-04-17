@@ -39,12 +39,40 @@ class UserController
         $view->heading = 'Benutzer Login';
         $view->display();
     }
-    public function registration() 
+    public function register() 
     {
-        $view = new View('user/registaration');
+        $view = new View('user/register');
         $view->title = 'Benutzer Registration';
         $view->heading = 'Benutzer Registration';
         $view->display();
+    }
+
+    public function doRegistration()
+    {
+        $userRepository = new UserRepository();
+        echo $_POST['name'];
+
+        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['falseEmail'] = true;
+            header('Location: /user/register');
+        }
+        
+        if($userRepository->getIDByUsername($_POST['username']) != null) {
+            $_SESSION['usernameTaken'] = true;
+            header('Location: /user/register');
+        }
+
+        if($_POST['name'] == '') {
+            $_POST['name'] = $_POST['username'];
+        }
+
+
+        $userRepository->create($_POST['username'], $_POST['name'], $_POST['email'], $_POST['bday'], $_POST['password']);
+        $_SESSION['userID'] = $userRepository->getIDByUsername($_POST['username']);
+        $_SESSION['isLoggedIn'] = true;
+        $_SESSION['sessionID'] = session_id();
+        $userRepository->fillInData();
+        header('Location: /user/index');
     }
 
     public function doLogin()
@@ -82,7 +110,7 @@ class UserController
                     $_SESSION['userID'] = $userVerifier->getIDByUsername($username);
                     $_SESSION['sessionID'] = session_id();
                     $userVerifier->fillInData();
-                    $this->index();
+                    header('Location: /user/index');
                 }
                 else
                 {
@@ -101,7 +129,7 @@ class UserController
     { 
         $_SESSION['isLoggedIn'] = false;
         session_destroy();
-        $this->login();
+        header('Location: /user/login');
     }
 
     public function edit()
@@ -125,6 +153,7 @@ class UserController
     {    
         $userRepository = new UserRepository();
         $userRepository->update($_POST['username'], $_POST['name'], $_POST['email'], $_POST['gebDat'], $_POST['bio'], $_POST['passwort'], $_SESSION['userID']);
+        $userRepository->fillInData();
         header('Location: /user/index');
     }
 }

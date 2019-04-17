@@ -3,13 +3,14 @@
 
 <head>
     <link rel="stylesheet" href="/css/login.css" />
+    <title>Log in</title>
 </head>
 
 <body>
     <div class="container text-center">
         <div class="login-bg">
             <img id="login-pic" src="/images/pear.png" class="img-fluid rounded-circle" alt="login image">
-            <h3 id="welcoming-text">Welcome to Phear! Fancy having a go?</h3>
+            <h3 id="welcoming-text">Welcome back to Phear!</h3>
             <?php
                 if (isset($_SESSION['wrongLogin']) && $_SESSION['wrongLogin'] == true) {
                     echo "<h6 style='color: red;'>Credentials Incorrect!</h6>";
@@ -40,7 +41,8 @@
                             </div>
                         </div>
                         <br />
-                        <input type="submit" class="btn btn-success" value="Log in">
+                        <input type="submit" class="btn btn-success login-btn" value="Log in">
+                        <a href="/user/register"><p class="text-primary register-link"><u>Don't have an account? Register here</u></p></a>
             </form>
         </div>
     </div>

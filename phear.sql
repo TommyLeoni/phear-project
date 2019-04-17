@@ -65,7 +65,7 @@ INSERT INTO `post` (`pid`, `post`, `uid_FK`, `bid_FK`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `geburtsdatum` date NOT NULL,
@@ -100,12 +100,6 @@ ALTER TABLE `bewertungen`
 ALTER TABLE `post`
   ADD PRIMARY KEY (`pid`),
   ADD KEY `uid_FK` (`uid_FK`);
-
---
--- Indizes für die Tabelle `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Constraints der exportierten Tabellen

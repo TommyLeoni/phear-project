@@ -56,7 +56,7 @@ class UserRepository extends Repository
     public function getIDByUsername($username)
     {
         $users = $this->readAll();
-        $userID;
+        $userID = null;
 
         foreach ($users as $user) {
             if ($user->username == $username) {
@@ -97,6 +97,16 @@ class UserRepository extends Repository
         $rc = $statement->bind_param('ssssssi', $username, $name, $email, $geburtstag, $bio, $passwort, $userID);
         if (false === $rc) { throw new Exception($statement->error); }
         if (!$statement->execute()) { throw new Exception($statement->error); }
-       
+    }
+
+    public function create($username, $name, $email, $geburtstag, $passwort) {
+        $connection = ConnectionHandler::getConnection();
+        $query = "INSERT INTO users(username, email, geburtsdatum, passwort, name) VALUES(?, ?, ?, ?, ?);";
+        $statement = $connection->prepare($query); // can fail because of syntax errors, missing privileges
+        if (false === $statement) { throw new Exception($connection->error); } 
+        // can fail because the number of parameter doesn't match the placeholders or type conflict
+        $rc = $statement->bind_param('sssss', $username, $email, $geburtstag, $passwort, $name);
+        if (false === $rc) { throw new Exception($statement->error); }
+        if (!$statement->execute()) { throw new Exception($statement->error); }
     }
 }

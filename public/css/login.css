@@ -8,7 +8,7 @@
     margin-top: 10%;
     margin-right: 15%;
     margin-left: 15%;
-    padding: 5%;
+    padding: 5% 5% 3% 5%;
 }
 
 #login-pic {
@@ -23,5 +23,13 @@
 
 body{
     margin: 0;
+}
+
+.register-link {
+    margin-top: 2%;
+}
+
+.login-btn {
+    margin-bottom: 2%;
 }
 
