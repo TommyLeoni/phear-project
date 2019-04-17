@@ -109,14 +109,17 @@ class UserController
         $UserRepository = new UserRepository();
         
         $view = new View('user/edit');
-
+        $currentUser = $UserRepository->readbyid($this->currentUserId);
         $view->title = 'Benutzer Edit';
         $view->heading = 'Benutzer Edit';
-        $view->users= $UserRepository->readbyid($_GET['id']);
-        
+        $view->name = $currentUser->name;
+        $view->username = $currentUser->username;
+        $view->bday = $currentUser->geburtsdatum;
+        $view->bio = $currentUser->bio;
+        $view->passwort = $currentUser->passwort;
+
+
         $view->display();
-
-
     }
 
     public function delete()

@@ -18,7 +18,7 @@
                     <p class="text-left bio"><?= $bio; ?></p>
                     <div class="row text-left">
                         <div class="col-sm-3">
-                            <a href="/user/edit"><button class="btn btn-secondary">Edit</button></a>
+                            <a href="/user/edit"><button  class="btn btn-secondary">Edit</button></a>
                         </div>
                         <div class="col-sm">
                             <form id="logout-btn" action="/user/logout">
