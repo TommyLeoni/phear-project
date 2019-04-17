@@ -50,6 +50,13 @@ class UserController
         $view->heading = 'Benutzer Login';
         $view->display();
     }
+    public function registration() 
+    {
+        $view = new View('user/registaration');
+        $view->title = 'Benutzer Registration';
+        $view->heading = 'Benutzer Registration';
+        $view->display();
+    }
 
     public function doLogin()
     {
