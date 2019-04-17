@@ -33,10 +33,6 @@
             </div>
             <div class="col-xs-10 col-sm-4 col-md-6">
                 <?php
-                    require '../templates/partial/post.php';
-
-                    print_r($posts);
-
                     foreach ($posts as $post) {
                         require '../templates/partial/post.php';
                     }

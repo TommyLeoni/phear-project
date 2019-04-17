@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="post-container text-left">
-            <p><?= $post; ?></p>
+            <p><?= $post->post; ?></p>
         </div>
     </div>
 </body>
