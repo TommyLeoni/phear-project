@@ -7,10 +7,13 @@
 </head>
 
 <body>
+    <!-- DatePicker für das Geburtsdatum -->
     <div class="container text-center">
         <div class="login-bg">
+            <!-- Phear Logo oberhald des Forms -->
             <img id="login-pic" src="/images/pear.png" class="img-fluid rounded-circle" alt="login image">
             <h3 id="welcoming-text">Welcome back to Phear!</h3>
+            <!-- Meldet falls das Passwort / die Benutzerdaten falsch ist -->
             <?php
                 if (isset($_SESSION['wrongLogin']) && $_SESSION['wrongLogin'] == true) {
                     echo "<h6 style='color: red;'>Credentials Incorrect!</h6>";
@@ -22,9 +25,11 @@
                     echo "<br />";
                 }
             ?>
+            <!-- Form zum Anmelden -->
             <form method="POST" action="/user/doLogin">
                 <div class="form-group row justify-content-md-center">
                     <div class="col-md-8 col-xl-8 col-xs-8">
+                        <!-- Textfeld für die Email oder Benutzernamen -->
                         <div class="text-left">
                             <label for="exampleInputEmail1">Email address or username</label>
                             <div>
@@ -32,6 +37,7 @@
                                     aria-describedby="emailHelp" placeholder="Enter email or username"><br />
                             </div>
                         </div>
+                        <!-- Passwortfeld für das Passwort -->
                         <div class="form-group row justify-content-md-left">
                             <div class="col-md-12 col-xl-12 col-xs-12">
                                 <div class="text-left">
@@ -42,6 +48,7 @@
                             </div>
                         </div>
                         <br />
+                        <!-- Verlinkung zur Registrierungs-Seite -->
                         <input type="submit" class="btn btn-success login-btn" value="Log in">
                         <a href="/user/register"><p class="text-primary register-link"><u>Don't have an account? Register here</u></p></a>
             </form>

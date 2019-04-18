@@ -30,10 +30,11 @@
                                             echo '<label>Email Address</label>';
                                         }
                                     ?>
-                                <input name="email" type="email" class="form-control"
-                                    placeholder="Enter your email">
-                                <!-- Hinweis, dass die Email nicht zwingend anzugeben ist -->    
-                                <small class="text-muted"><strong>Note: </strong>If you do not want to share your email, you can instead use your username for identification purposes.</small>
+                                    <input name="email" type="email" class="form-control"
+                                        placeholder="Enter your email">
+                                    <!-- Hinweis, dass die Email nicht zwingend anzugeben ist -->
+                                    <small class="text-muted"><strong>Note: </strong>If you do not want to share your
+                                        email, you can instead use your username for identification purposes.</small>
                                 </div>
                             </div>
                         </div>
@@ -42,16 +43,18 @@
                             <div class="col-md-12 col-xl-12 col-xs-12">
                                 <div class="text-left">
                                     <label>Name</label>
-                                <input name="name" type="text" class="form-control"
-                                    placeholder="Enter your name">
-                                <!-- Hinweis, dass der richtige Name nicht zwingend anzugeben ist -->    
-                                <small class="text-muted"><strong>Note: </strong>If you do not want to share your actual name, your username will serve as your name for this site.</small>
+                                    <input name="name" type="text" class="form-control" placeholder="Enter your name">
+                                    <!-- Hinweis, dass der richtige Name nicht zwingend anzugeben ist -->
+                                    <small class="text-muted"><strong>Note: </strong>If you do not want to share your
+                                        actual name, your username will serve as your name for this site.</small>
                                 </div>
                             </div>
                         </div>
+                        <!-- Textfeld für den Benutzernamen -->
                         <div class="form-group row justify-content-md-left">
                             <div class="col-md-12 col-xl-12 col-xs-12">
                                 <div class="text-left">
+                                    <!-- Zeigt Hinweis falsch Probleme mit dem Benutzernamen auftreten -->
                                     <?php
                                         if (isset($_SESSION['usernameTaken'])) {
                                             echo '<label class="text-danger">Username taken!</label>';
@@ -68,22 +71,22 @@
                                     placeholder="Enter a username of choice">
                             </div>
                         </div>
+                        <!-- DatePicker für das Geburtsdatum -->
                         <div class="form-group row justify-content-md-left">
                             <div class="col-md-12 col-xl-12 col-xs-12">
                                 <div class="text-left">
                                     <label>Date of birth (optional)</label>
                                 </div>
-                                <input name="bday" type="date" class="form-control"
-                                    placeholder="Password">
+                                <input name="bday" type="date" class="form-control" placeholder="Password">
                             </div>
                         </div>
+                        <!-- Passwortfeld für das Passwort -->
                         <div class="form-group row justify-content-md-left">
                             <div class="col-md-12 col-xl-12 col-xs-12">
                                 <div class="text-left">
                                     <label>Password</label>
                                 </div>
-                                <input name="password" type="password" class="form-control"
-                                    placeholder="Password">
+                                <input name="password" type="password" class="form-control" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group row justify-content-md-left">
@@ -91,13 +94,15 @@
                                 <div class="text-left">
                                     <label>Repeat password</label>
                                 </div>
-                                <input name="password2" type="password" class="form-control"
-                                    placeholder="Password">
+                                <input name="password2" type="password" class="form-control" placeholder="Password">
                             </div>
                         </div>
                         <br />
+                        <!-- Verlinkung zur Anmelde-Seite -->
                         <input type="submit" class="btn btn-success" value="Register">
-                        <a href="/user/login"><p class="text-primary register-link"><u>Have an account? Log in here</u></p></a>
+                        <a href="/user/login">
+                            <p class="text-primary register-link"><u>Have an account? Log in here</u></p>
+                        </a>
             </form>
         </div>
     </div>
