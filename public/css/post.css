@@ -9,6 +9,7 @@
     margin-right: 10%;
     margin-left: 10%;
     padding: 15px;
+    z-index: 9;
 }
 
 .shadow-bg:first-of-type {
@@ -37,4 +38,7 @@
 
 img {
     border-radius: 50%;
+}
+.deletelink{
+    float: right;
 }

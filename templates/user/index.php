@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+
+
 <?php
     use App\Repository\UserRepository;
     use App\Repository\PostRepository;
@@ -8,14 +8,10 @@
     $postRepo = new PostRepository();
     require './../templates/partial/validator.php'; require './../templates/partial/profile-pic-getter.php';
 ?>
-<head>
-    <title><?=$title;?></title>
-    <link rel="stylesheet" href="/css/index.css" />
-</head>
 
-<body>
-    <div class="container-fluid">
-        <div class="row text-center">
+
+
+    
             <div class="col-xs-5 col-sm-2 col-md-3 be-l">
                 <div class="profile-bg">
                     <img id="profile-pic" src="<?= $grav_url; ?>" class="img-fluid" alt="Your profile picture" />
@@ -25,14 +21,16 @@
                     <p class="text-left bio"><?= $_SESSION['bio']; ?></p>
                     <div class="row text-left">
                         <div class="col-sm-3">
-                            <a href="/user/edit"><button  class="btn btn-secondary">Edit</button></a>
+                            <form action="/user/edit">
+                            <button class="btn btn-secondary">Edit</button>
+                            </form>
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-4">
                             <form id="logout-btn" action="/user/logout">
                                 <button class="btn btn-secondary" type="submit">Logout</button>
                             </form>
                         </div>
-                        <div class="col-sm">
+                        <div class="col-sm-5">
                             <form method="post" action="/user/delete">
                                 <button class="btn btn-secondary " type="submit">Account löschen</button>
                             </form>
@@ -67,8 +65,5 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</body>
-
-</html>
+        
+    

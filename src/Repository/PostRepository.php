@@ -47,4 +47,21 @@ class PostRepository extends Repository
 
         return $rows;
     }
+    public function deletePost($pid)
+    {
+        $connection=ConnectionHandler::getConnection();
+        $query = "DELETE from post where pid=?";
+        $statement = $connection->prepare($query); // can fail because of syntax errors, missing privileges
+        if (false === $statement) {
+            throw new Exception($connection->error);
+        }
+        // can fail because the number of parameter doesn't match the placeholders or type conflict
+        $rc = $statement->bind_param('i', $pid);
+        if (false === $rc) {
+            throw new Exception($statement->error);
+        }
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
+    }
 }

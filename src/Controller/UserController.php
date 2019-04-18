@@ -145,7 +145,6 @@ class UserController
         $UserRepository = new UserRepository();
         
         $view = new View('user/edit');
-        $currentUser = $UserRepository->readbyid($this->currentUserId);
         $view->title = 'Benutzer Edit';
         $view->heading = 'Benutzer Edit';
         $view->user= $UserRepository->readById($_SESSION['userID']);
@@ -177,6 +176,12 @@ class UserController
     {
         $postRepository = new PostRepository();
         $postRepository->newpost($_POST['post'], $_SESSION['userID']);
+        header('Location: /user/index');
+    }
+    public function deletePost()
+    {
+        $postRepository = new PostRepository();
+        $postRepository->deletePost($_POST['postid']);
         header('Location: /user/index');
     }
 }
