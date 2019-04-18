@@ -10,10 +10,10 @@
 <body>
     <div class="container shadow-bg">
         <div class="row text-left">
-            <div class="col-xs-1 col-sm-1 col-md-1">
+            <div class="col-xs-1 col-sm-1 col-md-1" style="padding-right: 40px;">
                 <img src='<?= $grav_url; ?>' width="50" height="50">
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 name-of-user-place">
+            <div class="col-xs-8 col-sm-8 col-md-8 name-of-user-place">
                 <h6 class="align-middle name-of-user-post"><?= $userPost->name; ?></h6>
                 <h6 class="text-muted">@<?= $userPost->username; ?></h6>
             </div>
