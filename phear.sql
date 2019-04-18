@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 18. Apr 2019 um 11:40
+-- Erstellungszeit: 18. Apr 2019 um 14:11
 -- Server-Version: 10.1.38-MariaDB
 -- PHP-Version: 7.3.3
 
@@ -25,44 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `bewertungen`
---
-
-CREATE TABLE `bewertungen` (
-  `bid` int(11) NOT NULL,
-  `uid_FK` int(11) NOT NULL,
-  `pid_FK` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Tabellenstruktur für Tabelle `post`
 --
 
 CREATE TABLE `post` (
   `pid` int(11) NOT NULL,
   `post` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `uid_FK` int(11) NOT NULL,
-  `bid_FK` int(11) NOT NULL
+  `uid_FK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Daten für Tabelle `post`
 --
 
-INSERT INTO `post` (`pid`, `post`, `uid_FK`, `bid_FK`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 1, 1),
-(2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 1, 1),
-(3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 2, 1),
-(4, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 2, 1),
-(5, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 2, 1),
-(6, 'Grüsse von Silke :=)', 2, 0),
-(7, 'B U M M S E N', 1, 0),
-(8, 'Erstma nice die Post funktion testen Jungs ich grüss euch', 1, 0),
-(9, '1 nicer Grill hier scheisse Notre Dame brennt', 1, 0),
-(10, 'geplant war des jez ned, San Frantschüssko', 1, 0),
-(11, 'nice', 1, 0);
+INSERT INTO `post` (`pid`, `post`, `uid_FK`) VALUES
+(14, 'Grüss dich Bruder', 31),
+(17, 'greetings fellas', 33),
+(18, 'oha 1 nice Konversation hier auf diesem Bhirne', 32);
 
 -- --------------------------------------------------------
 
@@ -76,7 +55,7 @@ CREATE TABLE `users` (
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `geburtsdatum` date NOT NULL,
   `bio` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `passwort` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `passwort` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -85,22 +64,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `geburtsdatum`, `bio`, `passwort`, `name`) VALUES
-(1, 'tommyy', 'tomasoleoni011@gmail.com', '2002-09-28', 'It is your fellow mate, tommy', 'sml12345', 'Tomaso Leoni'),
-(2, 'jouniw', 'jouniw@gmx.ch', '2001-12-05', 'Der coole Dude der littes tut, in Fachkreisen auch als wohltätige Fackel bezeichnet', 'sml', 'Jouni Wüthrich'),
-(16, 'tester', 'tester@test.de', '2001-06-05', 'Click on the edit-button to edit your bio and everything else about your profile.', 'sml', 'Der Tester'),
-(19, 'lslslls', 'lolololo@lollo.de', '1554-05-14', 'Click on the edit-button to edit your bio and everything else about your profile.', 'sml', 'lslslls');
+(31, 'jouniw', 'jouniw@gmx.ch', '0000-00-00', 'Click on the edit-button to edit your bio and everything else about your profile.', '$2y$10$OeXc9BoEnA75F0T1QMYZUuhYw7Uep1aa/bNLC.mp6tyxXJJbg2.E6', 'Jouni Wüthrich'),
+(32, 'Tommy', 'tomasoleoni011@gmail.com', '2002-09-29', 'Click on the edit-button to edit your bio and everything else about your profile.', '$2y$10$KAVh7oZCuhjkpjeDUYUjxu8NdXBPT7gY6CjZdX9CPmTrJI.mDEiBG', 'Tomaso Leoni'),
+(33, 'tester', 'tester@test.de', '1785-05-16', 'Click on the edit-button to edit your bio and everything else about your profile.', '$2y$10$jg0ofK7dbHOwidnPOeGyauiCMbahyBag8KLkNGKpoSNX6e8HdviXa', 'Der Tester');
 
 --
 -- Indizes der exportierten Tabellen
 --
-
---
--- Indizes für die Tabelle `bewertungen`
---
-ALTER TABLE `bewertungen`
-  ADD PRIMARY KEY (`bid`),
-  ADD KEY `id_FK` (`uid_FK`),
-  ADD KEY `pid_FK` (`pid_FK`);
 
 --
 -- Indizes für die Tabelle `post`
@@ -120,22 +90,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT für Tabelle `bewertungen`
---
-ALTER TABLE `bewertungen`
-  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT für Tabelle `post`
 --
 ALTER TABLE `post`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints der exportierten Tabellen
