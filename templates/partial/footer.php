@@ -1,6 +1,4 @@
-<head>
-    <link rel="stylesheet" href="/css/footer.css" />
-</head>
+
 <footer class="main-footer">
     <div class="row justify-content-md-center">
         <div class="col col-lg-auto navbar-text">
@@ -14,3 +12,6 @@
         </div>
     </div>
 </footer>
+</body>
+
+</html>
