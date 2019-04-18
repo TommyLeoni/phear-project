@@ -1,3 +1,4 @@
+/*Fügt einen Schatten hinzu und setzt es an die richtige Stelle*/
 .shadow-bg {
     height: auto;
     width: auto;
@@ -11,15 +12,17 @@
     padding: 15px;
     z-index: 9;
 }
-
+/*nimmt oben margin weg*/
 .shadow-bg:first-of-type {
     margin-top: 0px;
 }
 
+/*fügt bim untersten unten margin hinzu*/
 .shadow-bg:last-of-type {
     margin-bottom: 10%;
 }
 
+/*editiert die Schrift richtig*/
 .name-of-user-post {
     font-size: 1.2em;
     margin-bottom: 0;
@@ -29,16 +32,15 @@
     height: 50px;
     width: auto;
 }
-
+/*editiert die Schrift richtig*/
 .post-container {
     font-size: 1.0em;
     font-weight: 400;
     margin-top: 2%;
 }
 
+/*macht das Bild rund*/
 img {
     border-radius: 50%;
 }
-.deletelink{
-    float: right;
-}
+

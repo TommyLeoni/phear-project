@@ -1,3 +1,4 @@
+/*gibt den bild einen Schatten und setzt es in die richtige Grösse*/
 #profile-pic {
     width: 100%;
     border-radius: 50%;
@@ -5,14 +6,14 @@
     -moz-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
 }
-
+/*gibt dem Objekt einen Schatten*/
 .shadow {
     -webkit-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
 }
 
-
+/*Fügt einen Schatten hinzu und setzt es an die richtige Stelle*/
 .profile-bg {
     height: auto;
     width: auto;
@@ -29,6 +30,7 @@
     padding-left: 10%;
 }
 
+/*Fügt einen Schatten hinzu und setzt es an die richtige Stelle*/
 .create-post-bg {
     height: auto;
     width: auto;
@@ -45,33 +47,41 @@
     padding-left: 10%;
 }
 
+/* setzt es an die richtige Stelle*/
 .create-post-pp {
     margin-bottom: 15px;
     margin-right: 5px;
 }
 
+/*textarea wird editiert*/
 .textarea1{
     resize: none !important;
     height: 500px !important;
 }
+
+/*editiert die Schrift richtig*/
 .name-of-user {
     font-size: 26px;
     margin-top: 10%;
 }
 
+/*editiert die Schrift richtig*/
 .username {
     font-size: 20px;
     margin-top: 3%;
 }
+/*fixt es rechts hin*/
 .be-r{
     position: fixed;
     left: 75%;
     top: 5%;
 }
+/*fixt es links hin*/
 .be-l{
     position: fixed;
     top: 5%;
 }
+/*fixt es in die Mitte*/
 .be-m{
     margin-left: 25%;
     margin-top: 5%;
@@ -79,11 +89,13 @@
 
 }
 
+/*editiert die Schrift richtig*/
 .bday {
     font-size: 16px;
     margin-top: 2%;
 }
 
+/*editiert die Schrift richtig*/
 .bio {
     font-size: 18px;
     margin-top: 5%;
@@ -91,20 +103,24 @@
     color: #2a2a2a;
 }
 
+/*lässt die grösse sich automatisch anpassen*/
 .profile-btns {
     width: auto;
     height: auto;
 }
 
+/*nimmt padding und margin weg*/
 #logout-btn {
     margin: 0;
     padding: 0;
 }
 
+/*fügt margin hinuz*/
 #createpost{
     margin: 10% 5% 10% 5%;
 }
 
+/*macht die schrift grösser und dicker*/
 .Create-of-Post{
     font-size: 200%;
     font-weight: 600;
