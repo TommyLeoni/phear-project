@@ -1,4 +1,7 @@
 <?php
+
+# Läd das Profilbild des Benutzers von gravatar.
+# Ist keins vorhanden, fügt es das Standard-Profilbild ein.
 $default = "https://de.gravatar.com/userimage/";
 $size = 50;
 $grav_url = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($_SESSION['email']))) . "?d=" . urlencode($default) . "&s=" . $size;

@@ -166,6 +166,9 @@ class UserController
         if ($_POST['passwort'] == '') {
             $_SESSION['cannotEdit'] = true;
             $this->edit();
+        } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['falseEmail'] = true;
+            $this->edit();
         } else {
             $userRepository->update($_POST['username'], $_POST['name'], $_POST['email'], $_POST['gebDat'], $_POST['bio'], $_POST['passwort'], $_SESSION['userID']);
             $userRepository->fillInData();
