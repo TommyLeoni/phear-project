@@ -15,10 +15,10 @@
 
         <!-- Verbindet Werte aus der Session mit dem Profil -->
         <img id="profile-pic" src="<?= $grav_url; ?>" class="img-fluid" alt="Your profile picture" />
-        <h3 class="text-left name-of-user"><?= $_SESSION['name']; ?></h3>
-        <h6 class="text-left username text-muted">@<?= $_SESSION['username']; ?></h6>
-        <h6 class="text-left bday text-muted"><?= $_SESSION['gebDat']; ?></h6>
-        <p class="text-left bio"><?= $_SESSION['bio']; ?></p>
+        <h3 class="text-left name-of-user"><?= htmlentities($_SESSION['name']); ?></h3>
+        <h6 class="text-left username text-muted">@<?= htmlentities($_SESSION['username']); ?></h6>
+        <h6 class="text-left bday text-muted"><?= htmlentities($_SESSION['gebDat']); ?></h6>
+        <p class="text-left bio"><?= htmlentities($_SESSION['bio']); ?></p>
         <div class="row text-left">
 
             <!-- Knopf zum Bearbeiten des Profils -->
