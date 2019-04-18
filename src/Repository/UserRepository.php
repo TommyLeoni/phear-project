@@ -71,7 +71,7 @@ class UserRepository extends Repository
     public function verifyPassword($uid, $password)
     {
         $user = $this->readById($uid);
-        if ($user->passwort == $password) {
+        if (password_verify($password, $user->passwort)) {
             return true;
         } else {
             return false;

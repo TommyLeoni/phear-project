@@ -51,10 +51,13 @@ class UserController
     {
         $userRepository = new UserRepository();
 
-        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        if ($_POST['email'] != '' && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             $_SESSION['falseEmail'] = true;
             header('Location: /user/register');
-        } elseif ($userRepository->getIDByEmail($_POST['email']) != null) {
+        } elseif ($_POST['username'] == '') {
+            $_SESSION['emptyUsername'] = true;
+            header('Location: /user/register');
+        } elseif ($_POST['email'] != '' && $userRepository->getIDByEmail($_POST['email']) != null) {
             $_SESSION['falseEmail'] = true;
             header('Location: /user/register');
         } elseif ($userRepository->getIDByUsername($_POST['username']) != null) {
@@ -64,7 +67,10 @@ class UserController
             if ($_POST['name'] == '') {
                 $_POST['name'] = $_POST['username'];
             }
-            $userRepository->create($_POST['username'], $_POST['name'], $_POST['email'], $_POST['bday'], $_POST['password']);
+
+            $hashedPW = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+            $userRepository->create($_POST['username'], $_POST['name'], $_POST['email'], $_POST['bday'], $hashedPW);
             $_SESSION['userID'] = $userRepository->getIDByUsername($_POST['username']);
             $_SESSION['isLoggedIn'] = true;
             $_SESSION['sessionID'] = session_id();
@@ -105,13 +111,14 @@ class UserController
             $username = $identifier;
 
             if ($userVerifier->userExistsByUsername($username)) {
-                $this->currentUserId = $userVerifier->getIDByUsername($username);
+                $currentUserId = $userVerifier->getIDByUsername($username);
+                $currentUser = $userVerifier->readById($currentUserId);
 
-                if ($userVerifier->verifyPassword($this->currentUserId, $password)) {
+                if (password_verify($password, $currentUser->passwort)) {
                     $_SESSION['isLoggedIn'] = true;
                     $_SESSION['wrongLogin'] = false;
                     $_SESSION['wrongPassword'] = false;
-                    $_SESSION['userID'] = $userVerifier->getIDByUsername($username);
+                    $_SESSION['userID'] = $currentUserId;
                     $_SESSION['sessionID'] = session_id();
                     $userVerifier->fillInData();
                     header('Location: /user/index');
