@@ -56,6 +56,9 @@
                                         if (isset($_SESSION['usernameTaken'])) {
                                             echo '<label class="text-danger">Username taken!</label>';
                                             unset($_SESSION['usernameTaken']);
+                                        } elseif(isset($_SESSION['emptyUsername'])) {
+                                            echo '<label class="text-danger">Username must be given!</label>';
+                                            unset($_SESSION['emptyUsername']);
                                         } else {
                                             echo '<label>Username</label>';
                                         }
