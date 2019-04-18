@@ -1,7 +1,9 @@
+/*vergrössert die SChrift*/
 .titles1{
     font-size: 25px;
 }
 
+/*Fügt einen Schatten hinzu und setzt es an die richtige Stelle*/
 .edit-bg {
     height: auto;
     width: auto;
@@ -18,6 +20,7 @@
     padding-left: 5%;
 }
 
+/*gibt den bild einen Schatten und setzt es in die richtige Grösse*/
 #profile-pic {
     width: 150px;
     border-radius: 50%;
@@ -27,10 +30,12 @@
     margin-bottom: 20px;
 }
 
+/*Macht es Blau*/
 .bluecolor{
     color: blue;
 }
 
+/*Das Objekt bekommt die Grösse des nächst obern divs*/
 #textarea-full{
     width: 100%;
 }

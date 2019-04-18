@@ -1,3 +1,4 @@
+/*Fügt einen Schatten hinzu und setzt es an die richtige Stelle*/
 .login-bg {
     height: auto;
     width: auto;
@@ -11,24 +12,28 @@
     padding: 5% 5% 3% 5%;
 }
 
+/*editiert die grösse und margin des Bildes*/
 #login-pic {
     width: 200px;
     height: auto;
     margin-bottom: 4%;
 }
 
+/*fügt unten margin hinzu*/
 #welcoming-text {
     margin-bottom: 3%;
 }
 
+/* nimmt margin vom Body weg*/
 body{
     margin: 0;
 }
 
+/*fügt oben margin hinzu*/
 .register-link {
     margin-top: 2%;
 }
-
+/*fügt unten margin hinzu*/
 .login-btn {
     margin-bottom: 2%;
 }

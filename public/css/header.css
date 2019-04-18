@@ -1,34 +1,28 @@
+/*gibt den bild einen Schatten*/
 .shadow-bg {
     -webkit-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
 }
-
+/*macht es schwarz*/
 .login-link {
     color: black;
 }
-
-.navbar-logo {
-    width: 20px;
-    height: auto;
-}
-
-#phear-logo {
-    height: 20px;
-    width: auto;
-}
+/*fixiert die Navbar oben*/
 .be-o{
     position: fixed;
     width: 100%;
     z-index: 10;
     top: 0;
 }
-
+/*gibt dem Header einen Schatten*/
 .main-header {
     -webkit-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 25px -8px rgba(0,0,0,0.75);
 }
+
+/*setzt den Body in den Hintergrund*/
 body{
     z-index: -10;
 }
