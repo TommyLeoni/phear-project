@@ -26,6 +26,7 @@
                     <a href="https://de.gravatar.com/site/login/"><button class="btn text-primary">Profilbild
                             ändern</button></a>
                 </div>
+                <?php if(isset($_SESSION['cannotEdit'])) { echo '<h4 class="text-danger">You must input or change your password!</h4>'; unset($_SESSION['cannotEdit']); }?>
                 <form method="post" action="update">
                     <div class="form-group text-left">
                         <label for="exampleInputUsername1" class="titles1">Username</label>
@@ -54,7 +55,7 @@
                     <div class="form-group text-left">
                         <label for="exampleInputPassword1" class="titles1">Password</label>
                         <input type="password" name="passwort" class="form-control" id="exampleInputPassword1"
-                            value="Passwort"><br />
+                            placeholder="Enter your password to edit"><br />
                     </div>
                     <button type="submit" class="btn btn-primary">Ändern</button>
                 </form>

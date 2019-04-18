@@ -41,7 +41,7 @@ class UserRepository extends Repository
     public function getIDByEmail($email)
     {
         $users = $this->readAll();
-        $userID;
+        $userID = null;
 
         foreach ($users as $user) {
             if ($user->email == $email) {
@@ -49,7 +49,6 @@ class UserRepository extends Repository
                 break;
             }
         }
-
         return $userID;
     }
 
@@ -86,7 +85,7 @@ class UserRepository extends Repository
         $_SESSION['username'] = $entry->username;
         $_SESSION['gebDat'] = $entry->geburtsdatum;
         $_SESSION['email'] = $entry->email;
-        $_SESSION['password'] = strlen($entry->passwort);
+        $_SESSION['password'] = ($entry->passwort);
     }
 
     public function update($username, $name, $email, $geburtstag, $bio, $passwort, $userID){
@@ -96,6 +95,17 @@ class UserRepository extends Repository
         if (false === $statement) { throw new Exception($connection->error); } 
         // can fail because the number of parameter doesn't match the placeholders or type conflict
         $rc = $statement->bind_param('ssssssi', $username, $name, $email, $geburtstag, $bio, $passwort, $userID);
+        if (false === $rc) { throw new Exception($statement->error); }
+        if (!$statement->execute()) { throw new Exception($statement->error); }
+    }
+
+    public function updateWithoutPassword($username, $name, $email, $geburtstag, $bio, $userID){
+        $connection=ConnectionHandler::getConnection();
+        $query = "UPDATE users set username=?, name=?, email=?, geburtsdatum=?, bio=? where id=?";
+        $statement = $connection->prepare($query); // can fail because of syntax errors, missing privileges
+        if (false === $statement) { throw new Exception($connection->error); } 
+        // can fail because the number of parameter doesn't match the placeholders or type conflict
+        $rc = $statement->bind_param('sssssi', $username, $name, $email, $geburtstag, $bio, $userID);
         if (false === $rc) { throw new Exception($statement->error); }
         if (!$statement->execute()) { throw new Exception($statement->error); }
     }
@@ -110,6 +120,7 @@ class UserRepository extends Repository
         if (false === $rc) { throw new Exception($statement->error); }
         if (!$statement->execute()) { throw new Exception($statement->error); }
     }
+
     public function delete($uid){
         $connection=ConnectionHandler::getConnection();
         $query = "DELETE from users where id=?";

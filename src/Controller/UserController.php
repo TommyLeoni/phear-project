@@ -17,7 +17,7 @@ class UserController
         $postRepository = new PostRepository();
 
         $view = new View('user/index');
-        $view->posts = $postRepository->readAll();
+        $view->posts = $postRepository->readPosts();
         $view->title = 'Home';
         $view->heading = 'Home';
 
@@ -50,29 +50,27 @@ class UserController
     public function doRegistration()
     {
         $userRepository = new UserRepository();
-        echo $_POST['name'];
 
         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             $_SESSION['falseEmail'] = true;
-            header('Location: /user/register');
-        }
-        
-        if($userRepository->getIDByUsername($_POST['username']) != null) {
+            $this->register();
+        } else if($userRepository->getIDByEmail($_POST['email']) != null) {
+            $_SESSION['falseEmail'] = true;
+            $this->register();
+        }else if($userRepository->getIDByUsername($_POST['username']) != null) {
             $_SESSION['usernameTaken'] = true;
-            header('Location: /user/register');
+            $this->register();
+        } else if (!isset($_SESSION['falseEmail']) && !isset($_SESSION['usernameTaken'])) {
+            if($_POST['name'] == '') {
+                $_POST['name'] = $_POST['username'];
+            }
+            $userRepository->create($_POST['username'], $_POST['name'], $_POST['email'], $_POST['bday'], $_POST['password']);
+            $_SESSION['userID'] = $userRepository->getIDByUsername($_POST['username']);
+            $_SESSION['isLoggedIn'] = true;
+            $_SESSION['sessionID'] = session_id();
+            $userRepository->fillInData();
+            header('Location: /user/index');
         }
-
-        if($_POST['name'] == '') {
-            $_POST['name'] = $_POST['username'];
-        }
-
-
-        $userRepository->create($_POST['username'], $_POST['name'], $_POST['email'], $_POST['bday'], $_POST['password']);
-        $_SESSION['userID'] = $userRepository->getIDByUsername($_POST['username']);
-        $_SESSION['isLoggedIn'] = true;
-        $_SESSION['sessionID'] = session_id();
-        $userRepository->fillInData();
-        header('Location: /user/index');
     }
 
     public function doLogin()
@@ -165,19 +163,25 @@ class UserController
     {
         $userRepository = new UserRepository();
         $userRepository->delete($_SESSION['userID']);
-        header('Location: index');
+        header('Location: login');
     }
     public function update()
     {    
         $userRepository = new UserRepository();
-        $userRepository->update($_POST['username'], $_POST['name'], $_POST['email'], $_POST['gebDat'], $_POST['bio'], $_POST['passwort'], $_SESSION['userID']);
-        $userRepository->fillInData();
-        header('Location: /user/index');
+        $user = $userRepository->readById($_SESSION['userID']);
+        if ($_POST['passwort'] == '') {
+            $_SESSION['cannotEdit'] = true;
+            $this->edit();
+        } else {
+            $userRepository->update($_POST['username'], $_POST['name'], $_POST['email'], $_POST['gebDat'], $_POST['bio'], $_POST['passwort'], $_SESSION['userID']);
+            $userRepository->fillInData();
+            header('Location: /user/index');
+        }
     }
     public function newpost()
     {
         $postRepository = new PostRepository();
         $postRepository->newpost($_POST['post'], $_SESSION['userID']);
-        header('Location: index');
+        header('Location: /user/index');
     }
 }
