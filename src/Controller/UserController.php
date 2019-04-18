@@ -165,7 +165,8 @@ class UserController
     {
         $userRepository = new UserRepository();
         $userRepository->delete($_SESSION['userID']);
-        header('Location: index');
+        session_destroy();
+        header('Location: login');
     }
     public function update()
     {    
