@@ -2,7 +2,7 @@
     $userPost = $userRepo->readByID($post->uid_FK);
     $default = "https://de.gravatar.com/userimage/";
     $size = 50;
-    $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $userPost->email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+    $grav_url = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($userPost->email))) . "?d=" . urlencode($default) . "&s=" . $size;
 ?>
 <head>
     <link rel="stylesheet" href="/css/post.css">
@@ -25,7 +25,7 @@
     <?php
         $default = "https://de.gravatar.com/userimage/";
         $size = 50;
-        $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $_SESSION['email'] ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+        $grav_url = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($_SESSION['email']))) . "?d=" . urlencode($default) . "&s=" . $size;
     ?>
 </body>
 

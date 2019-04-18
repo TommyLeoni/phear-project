@@ -32,14 +32,14 @@ class UserController
         $view->display();
     }
 
-    public function login() 
+    public function login()
     {
         $view = new View('user/login');
         $view->title = 'Benutzer Login';
         $view->heading = 'Benutzer Login';
         $view->display();
     }
-    public function register() 
+    public function register()
     {
         $view = new View('user/register');
         $view->title = 'Benutzer Registration';
@@ -51,17 +51,17 @@ class UserController
     {
         $userRepository = new UserRepository();
 
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             $_SESSION['falseEmail'] = true;
-            $this->register();
-        } else if($userRepository->getIDByEmail($_POST['email']) != null) {
+            header('Location: /user/register');
+        } elseif ($userRepository->getIDByEmail($_POST['email']) != null) {
             $_SESSION['falseEmail'] = true;
-            $this->register();
-        }else if($userRepository->getIDByUsername($_POST['username']) != null) {
+            header('Location: /user/register');
+        } elseif ($userRepository->getIDByUsername($_POST['username']) != null) {
             $_SESSION['usernameTaken'] = true;
             $this->register();
-        } else if (!isset($_SESSION['falseEmail']) && !isset($_SESSION['usernameTaken'])) {
-            if($_POST['name'] == '') {
+        } elseif (!isset($_SESSION['falseEmail']) && !isset($_SESSION['usernameTaken'])) {
+            if ($_POST['name'] == '') {
                 $_POST['name'] = $_POST['username'];
             }
             $userRepository->create($_POST['username'], $_POST['name'], $_POST['email'], $_POST['bday'], $_POST['password']);
@@ -79,12 +79,10 @@ class UserController
         $identifier = $_POST['identifier'];
         $password = $_POST['password'];
 
-        if (filter_var($identifier, FILTER_VALIDATE_EMAIL))
-        {
+        if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
             $email = $identifier;
 
-            if($userVerifier->userExistsByEmail($email))
-            {
+            if ($userVerifier->userExistsByEmail($email)) {
                 $this->currentUserId = $userVerifier->getIDByEmail($email);
 
                 if ($userVerifier->verifyPassword($this->currentUserId, $password)) {
@@ -95,25 +93,18 @@ class UserController
                     $_SESSION['sessionID'] = session_id();
                     $userVerifier->fillInData();
                     header('Location: /user/index');
-                }
-                else
-                {
+                } else {
                     $_SESSION['wrongPassword'] = true;
                     header('Location: /user/login');
                 }
-            }
-            else
-            {
+            } else {
                 $_SESSION['wrongLogin'] = true;
                 header('Location: /user/login');
             }
-        }
-        else
-        {
+        } else {
             $username = $identifier;
 
-            if($userVerifier->userExistsByUsername($username))
-            {
+            if ($userVerifier->userExistsByUsername($username)) {
                 $this->currentUserId = $userVerifier->getIDByUsername($username);
 
                 if ($userVerifier->verifyPassword($this->currentUserId, $password)) {
@@ -124,15 +115,11 @@ class UserController
                     $_SESSION['sessionID'] = session_id();
                     $userVerifier->fillInData();
                     header('Location: /user/index');
-                }
-                else
-                {
+                } else {
                     $_SESSION['wrongPassword'] = true;
                     header('Location: /user/login');
                 }
-            }
-            else
-            {
+            } else {
                 $_SESSION['wrongLogin'] = true;
                 header('Location: /user/login');
             }
@@ -140,7 +127,7 @@ class UserController
     }
 
     public function logout()
-    { 
+    {
         $_SESSION['isLoggedIn'] = false;
         session_destroy();
         header('Location: /user/login');
@@ -167,7 +154,7 @@ class UserController
         header('Location: login');
     }
     public function update()
-    {    
+    {
         $userRepository = new UserRepository();
         $user = $userRepository->readById($_SESSION['userID']);
         if ($_POST['passwort'] == '') {

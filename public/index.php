@@ -16,5 +16,3 @@ use App\Dispatcher\Dispatcher;
 session_start();
 
 Dispatcher::dispatch();
-
-?>

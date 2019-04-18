@@ -15,7 +15,7 @@
                 if (isset($_SESSION['wrongLogin']) && $_SESSION['wrongLogin'] == true) {
                     echo "<h6 style='color: red;'>Credentials Incorrect!</h6>";
                     $_SESSION['wrongLogin'] = false;
-                } else if (isset($_SESSION['wrongPassword']) && $_SESSION['wrongPassword'] == true) {
+                } elseif (isset($_SESSION['wrongPassword']) && $_SESSION['wrongPassword'] == true) {
                     echo "<h6 style='color: red;'>Password Incorrect!</h6>";
                     $_SESSION['wrongPassword'] = false;
                 } else {

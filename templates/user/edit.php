@@ -4,7 +4,7 @@
 
     $default = "https://de.gravatar.com/userimage/";
     $size = 50;
-    $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $_SESSION['email'] ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+    $grav_url = "https://www.gravatar.com/avatar/" . md5(strtolower(trim($_SESSION['email']))) . "?d=" . urlencode($default) . "&s=" . $size;
 
     if (!@GetImageSize($grav_url)) {
         $grav_url = "https://en.gravatar.com/userimage/155142028/3feda8a9ec892e6fd113d870ffe6184e.jpeg";
@@ -26,7 +26,10 @@
                     <a href="https://de.gravatar.com/site/login/"><button class="btn text-primary">Profilbild
                             ändern</button></a>
                 </div>
-                <?php if(isset($_SESSION['cannotEdit'])) { echo '<h4 class="text-danger">You must input or change your password!</h4>'; unset($_SESSION['cannotEdit']); }?>
+                <?php if (isset($_SESSION['cannotEdit'])) {
+    echo '<h4 class="text-danger">You must input or change your password!</h4>';
+    unset($_SESSION['cannotEdit']);
+}?>
                 <form method="post" action="update">
                     <div class="form-group text-left">
                         <label for="exampleInputUsername1" class="titles1">Username</label>

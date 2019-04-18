@@ -9,8 +9,8 @@ class UriParser
      */
     public static function getControllerName()
     {
-		$uriFragments = self::getUriFragments();
-		// TODO: Methode um den "Controller"-Teil der URI zurückzugeben
+        $uriFragments = self::getUriFragments();
+        // TODO: Methode um den "Controller"-Teil der URI zurückzugeben
         
         // http://my-project.local/default/index    ->      "default"
         // http://my-project.local/user/create      ->      "user"
@@ -25,7 +25,7 @@ class UriParser
     public static function getMethodName()
     {
         $uriFragments = self::getUriFragments();
-		// TODO: Methode um den "Action"-Teil der URI zurückzugeben
+        // TODO: Methode um den "Action"-Teil der URI zurückzugeben
         
         // http://my-project.local/default/index    ->      "index"
         // http://my-project.local/user/create      ->      "create"

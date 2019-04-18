@@ -14,8 +14,7 @@ class View
 
     public function __set($key, $value)
     {
-        if (!isset($this->$key))
-        {
+        if (!isset($this->$key)) {
             $this->properties[$key] = $value;
         }
     }
