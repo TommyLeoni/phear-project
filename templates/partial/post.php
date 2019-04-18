@@ -23,21 +23,21 @@
 
             <!-- Fügt Namen und Benutzernamen ein -->
             <div class="col-xs-8 col-sm-8 col-md-8 name-of-user-place">
-                <h6 class="align-middle name-of-user-post"><?= $userPost->name; ?></h6>
-                <h6 class="text-muted">@<?= $userPost->username; ?></h6>
+                <h6 class="align-middle name-of-user-post"><?= htmlentities($userPost->name); ?></h6>
+                <h6 class="text-muted">@<?= htmlentities($userPost->username); ?></h6>
             </div>
         </div>
 
         <!-- Fügt den Text des Posts eins -->
         <div class="post-container text-left">
-            <p><?= $post->post; ?></p>
+            <p><?= htmlentities($post->post); ?></p>
         </div>
         <div class="col-sm">
 
             <!-- Form zum Löschen des Posts -->
             <form method="post" action="/user/deletePost">
                 <input type="hidden" name="postid" value="<?= $post->pid; ?>">
-                
+
                 <!-- Wurde der Post vom eingeloggten Benutzer erstellt, so wird die Möglichkeit zum Löschen gegeben -->
                 <?php
                 if($_SESSION['username']==$userPost->username){ 
